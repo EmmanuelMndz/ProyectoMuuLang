@@ -1,4 +1,7 @@
-from parser import Parser, imprimir_arbol
+from analizador_lexico import Lexer
+from parser import Parser
+from parser import imprimir_arbol
+
 
 def main():
     try:
@@ -7,9 +10,9 @@ def main():
             codigo = archivo.read()
 
         # Análisis léxico
-        Lexer = Lexer(codigo)
-        tokens = Lexer.analizar()
-        Lexer.guardar_en_archivo("tokens.txt")  # opcional
+        lexer = Lexer(codigo)
+        tokens = lexer.analizar()
+        lexer.guardar_en_archivo("tokens.txt")  # opcional
 
         # Análisis sintáctico
         parser = Parser(tokens)
@@ -24,4 +27,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
     
